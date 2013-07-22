@@ -46,3 +46,4 @@
 	colorlogrel = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 	colortree = !git colorlog | sed -e \"s/\\[\\([a-zA-Z]\\+\\-[0-9]\\+\\)\\]\\+/[\\x1B[35m\\1\\x1B[0m]/gm\" | less -R
 	colortreerel = !git colorlogrel | sed -e \"s/\\[\\([a-zA-Z]\\+\\-[0-9]\\+\\)\\]\\+/[\\x1B[35m\\1\\x1B[0m]/gm\" | less -R
+	ready = rebase -i @{u}
