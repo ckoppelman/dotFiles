@@ -1,23 +1,12 @@
 [user]
-	name = Charles Koppelman-Milstein
-	email = ckoppelman@ngpvan.com
+	name = Charles S. Koppelman-Milstein
+	email = ckoppelman@polarisproject.org
 [diff]
 	tool = kdiff3
 [merge]
 	tool = kdiff3
-[difftool "winmerge"]
-	cmd = git-difftool-winmerge-wrapper.sh \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
-
-[core]
-	autocrlf = true
-	excludesfile = C:\\Users\\ckoppelman\\Documents\\gitignore_global.txt
-[difftool "sourcetree"]
-	cmd = 'C:/Program Files (x86)/KDiff3/kdiff3.exe' \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = 'C:/Program Files (x86)/KDiff3/kdiff3.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = false 
 [color]
         branch = auto
         diff = true
@@ -46,3 +35,6 @@
 	colorlogrel = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 	colortree = !git colorlog | sed -e \"s/\\[\\([a-zA-Z]\\+\\-[0-9]\\+\\)\\]\\+/[\\x1B[35m\\1\\x1B[0m]/gm\" | less -R
 	colortreerel = !git colorlogrel | sed -e \"s/\\[\\([a-zA-Z]\\+\\-[0-9]\\+\\)\\]\\+/[\\x1B[35m\\1\\x1B[0m]/gm\" | less -R
+	ready = rebase -i @{u}
+	st = status
+	stat = status
