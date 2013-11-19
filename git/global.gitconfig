@@ -38,3 +38,5 @@
 	ready = rebase -i @{u}
 	st = status
 	stat = status
+[credential]
+	helper = osxkeychain
