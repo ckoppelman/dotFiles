@@ -40,3 +40,5 @@
 	stat = status
 [credential]
 	helper = osxkeychain
+[push]
+	default = upstream
