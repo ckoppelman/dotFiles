@@ -42,3 +42,5 @@
 	helper = osxkeychain
 [push]
 	default = upstream
+[core]
+	excludesfile = /Users/cskm/.global.gitignore
