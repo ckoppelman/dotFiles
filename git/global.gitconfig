@@ -1,22 +1,8 @@
 [user]
-	name = Charles Koppelman-Milstein
-	email = ckoppelman@ngpvan.com
-[diff]
-	tool = kdiff3
-[merge]
-	tool = kdiff3
-[difftool "winmerge"]
-	cmd = git-difftool-winmerge-wrapper.sh \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
+	name = Charles S. Koppelman-Milstein
+	email = ckoppel@alumni.gwu.edu
 [core]
 	autocrlf = true
-	excludesfile = C:\\Users\\ckoppelman\\Documents\\gitignore_global.txt
-[difftool "sourcetree"]
-	cmd = 'C:/Program Files (x86)/KDiff3/kdiff3.exe' \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = 'C:/Program Files (x86)/KDiff3/kdiff3.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = false 
 [color]
         branch = auto
         diff = true
@@ -48,5 +34,3 @@
 	ready = rebase -i @{u}
 	st = status
 	stat = status
-[push]
-	default = upstream
