@@ -2,9 +2,9 @@
 	name = Charles S. Koppelman-Milstein
 	email = ckoppelman@polarisproject.org
 [diff]
-	tool = kdiff3
+	tool = diffmerge
 [merge]
-	tool = kdiff3
+	tool = diffmerge
 [difftool]
 	prompt = false
 [color]
@@ -33,14 +33,31 @@
 	ci = commit
 	colorlog = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cd) %C(cyan)<%an>%Creset' --abbrev-commit --date=short
 	colorlogrel = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
-	colortree = !git colorlog | sed -e \"s/\\[\\([a-zA-Z]\\+\\-[0-9]\\+\\)\\]\\+/[\\x1B[35m\\1\\x1B[0m]/gm\" | less -R
-	colortreerel = !git colorlogrel | sed -e \"s/\\[\\([a-zA-Z]\\+\\-[0-9]\\+\\)\\]\\+/[\\x1B[35m\\1\\x1B[0m]/gm\" | less -R
+	colortree = !git colorlog | sed -e \"s/\\[\\([a-zA-Z]\\+\\-[0-9]\\+\\)\\]\\+/[\\x1B[35m\\1\\x1B[0m]/g\" | less -R
+	colortreerel = !git colorlogrel | sed -e \"s/\\[\\([a-zA-Z]\\+\\-[0-9]\\+\\)\\]\\+/[\\x1B[35m\\1\\x1B[0m]/g\" | less -R
 	ready = rebase -i @{u}
 	st = status
 	stat = status
+	br = branch
 [credential]
 	helper = osxkeychain
 [push]
 	default = upstream
 [core]
 	excludesfile = /Users/cskm/.global.gitignore
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[pull]
+	ff = yes
+[filter "ignore_logo"]
+	clean = sed '/<logo>/'d
+	smudge = cat
